@@ -31,10 +31,10 @@
                 <select style=" all: unset;">
                     <option selected>{{chapter.Name}}</option>
                     {% for item in listChapter %}
-                        {% if item.Name == chapter.Name %}
-                        {% else %}
-                            <option>{{item.Name}}</option>
-                        {% endif %}
+                    {% if item.Name == chapter.Name %}
+                    {% else %}
+                    <option>{{item.Name}}</option>
+                    {% endif %}
                     {% endfor %}
                 </select>
             </div>
@@ -56,10 +56,20 @@
         {% endfor %}
     </div>
     {% else %}
-    <div style="Width: 70%; text-align: center; margin-left: auto; margin-top: 10px; margin-right: auto;" class="anime__review__item__text">
+    <div style="Width: 70%; text-align: center; margin-left: auto; margin-top: 10px; margin-right: auto;"
+         class="anime__review__item__text">
         <h5 style="color: white;">Đang cập nhật</h5>
     </div>
     {% endif %}
+
+    <div class="product__pagination" style="text-align: center;">
+        <div>
+            <a style="margin-right: 10%;" href="/read/comic/phone/{{previous_chapter.Id}}">Previous</a>
+
+            <a style="margin-left: 10%;" href="/read/comic/phone/{{next_chapter.Id}}">Next</a>
+        </div>
+
+    </div>
 
     <div class="anime__details__form"
          style="Width: 70%; margin-left: auto; margin-top: 20px; margin-bottom:50px; margin-right: auto;">
