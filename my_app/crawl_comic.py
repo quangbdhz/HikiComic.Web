@@ -39,12 +39,12 @@ if __name__ == '__main__':
                 url += (item['data-src'] + "|")
                 if countDropLine > 55:
                     print(url)
-                    #Add_UrlImageManhwa(url, idChapter, listNameChapter[index])
+                    Add_UrlImageManhwa(url, idChapter, listNameChapter[index])
                     url = "|"
                     countDropLine = 0
             except:
                 continue
         if url != "|":
             print(url)
-            #Add_UrlImageManhwa(url, idChapter, listNameChapter[index])
+            Add_UrlImageManhwa(url, idChapter, listNameChapter[index])
         url = "|"

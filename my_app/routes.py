@@ -39,6 +39,48 @@ def Comic():
 def DetailsComic(id):
     return redirect(url_for('Comic', id=id))
 
+@app.route("/read/comic/phone/<id_chapter>", methods=["GET"])
+def PhoneDetailsChapter(id_chapter):
+    return redirect(url_for('PhoneChapterComic', id=id_chapter))
+
+@app.route("/phone-read-comic-chapter")
+def PhoneChapterComic():
+    id = request.args.get('id')
+    getChapter = Chapter.query.filter_by(Id=id).first()
+    getManhwa = Manhwa.query.filter_by(Id=getChapter.IdManhwa).first()
+    getListChapter = Chapter.query.filter_by(IdManhwa=getManhwa.Id)
+
+    previous_chapter = getChapter
+    next_chapter = getChapter
+
+    size = 0
+    for item in getListChapter:
+        size += 1
+
+    count = 0
+    for item in getListChapter:
+        if item.Id == getChapter.Id:
+            if 0 < count < size - 1:
+                previous_chapter = GetChapter(getListChapter, count - 1)
+                next_chapter = GetChapter(getListChapter, count + 1)
+            elif count == 0 and count < size - 1:
+                previous_chapter = getChapter
+                next_chapter = GetChapter(getListChapter, count + 1)
+            elif count == size - 1 and count > 0:
+                previous_chapter = GetChapter(getListChapter, count - 1)
+                next_chapter = getChapter
+            else:
+                continue
+        count += 1
+
+    countUrl = 0
+    getInfoChapter = UrlImageManhwa.query.filter_by(IdChapter=id)
+    for item in getInfoChapter:
+        countUrl += 1
+    listUrlImage = EncodeUrlImage(getInfoChapter)
+    return render_template("phone_details_chapter.html", manhwa=getManhwa, chapter=getChapter, listChapter=getListChapter,
+                           size=countUrl, listUrlImage=listUrlImage, next_chapter=next_chapter,
+                           previous_chapter=previous_chapter)
 
 @app.route("/read/comic/<id_chapter>", methods=["GET"])
 def DetailsChapter(id_chapter):
@@ -75,7 +117,7 @@ def ChapterComic():
                 continue
         count += 1
 
-    countUrl = 0;
+    countUrl = 0
     getInfoChapter = UrlImageManhwa.query.filter_by(IdChapter=id)
     for item in getInfoChapter:
         countUrl += 1

@@ -1,5 +1,3 @@
-from idlelib.debugger import Idb
-
 from my_app import common
 from my_app import db
 from my_app.models import Chapter, UrlImageManhwa
