@@ -1,0 +1,354 @@
+{% extends 'index.html' %}
+{% block body %}
+<section class="hero">
+    <div class="container">
+        <div class="hero__slider owl-carousel">
+            <div class="hero__items set-bg" data-setbg="https://images3.alphacoders.com/988/988746.jpg">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="hero__text">
+                            <div class="label">Top 1</div>
+                            <h2>Sword Art Online</h2>
+                            <p>The only way to live is to defeat all enemies. Death in the game is synonymous with death in real life...</p>
+                            <a href="https://animehay.club/thong-tin-phim/sword-art-online-35.html"><span>Watch Now</span> <i class="fa fa-angle-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero__items set-bg" data-setbg="https://images2.alphacoders.com/915/915188.jpg">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="hero__text">
+                            <div class="label">Top 2</div>
+                            <h2>Shokugeki no Souma</h2>
+                            <p>Young Yukihira Souma is a descendant of a popular restaurant, he has a burning desire to surpass his father...</p>
+                            <a href="https://animehay.club/thong-tin-phim/shokugeki-no-souma-202.html"><span>Watch Now</span> <i class="fa fa-angle-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero__items set-bg" data-setbg="https://images8.alphacoders.com/721/thumb-1920-721078.jpg">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="hero__text">
+                            <div class="label">Top 3</div>
+                            <h2>Oregairu</h2>
+                            <p>The story revolves around a socially disgusted high school student named Hachiman Hikigaya. He has a distorted view of life,...</p>
+                            <a href="https://animehay.club/thong-tin-phim/yahari-ore-no-seishun-love-comedy-wa-machigatteiru-588.html"><span>Watch Now</span> <i class="fa fa-angle-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="product spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="trending__product">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-8 col-sm-8">
+                            <div class="section-title">
+                                <h4>Trending Now</h4>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <div class="btn__all">
+                                <a href="/comic-page=1" class="primary-btn">View All <span class="arrow_right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        {% for item in listTop6ComicTrendingNow %}
+                        <a href="/comic/{{item.Id}}">
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="product__item">
+                                    <div class="product__item__pic set-bg" data-setbg="{{item.UrlImageManhwa}}">
+                                        <div class="ep">Hot</div>
+                                        <div class="comment"><i class="fa fa-comments"></i> 11</div>
+                                        <div class="view"><i class="fa fa-eye"></i> {{item.Views}}</div>
+                                    </div>
+                                    <div class="product__item__text">
+                                        <ul>
+                                            <li>Active</li>
+                                            <li>Movie</li>
+                                        </ul>
+                                        <h5><a href="/comic/{{item.Id}}">{{item.Name}}</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="popular__product">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-8 col-sm-8">
+                            <div class="section-title">
+                                <h4>Latest Comic Updates</h4>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <div class="btn__all">
+                                <a href="/comic-page=1" class="primary-btn">View All <span class="arrow_right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        {% for item in listTop9ComicUpdate %}
+                        <a href="/comic/{{item.Id}}">
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="product__item">
+                                    <div class="product__item__pic set-bg" data-setbg="{{item.UrlImageManhwa}}">
+                                        <div class="ep">Hot</div>
+                                        <div class="comment"><i class="fa fa-comments"></i> 11</div>
+                                        <div class="view"><i class="fa fa-eye"></i> {{item.Views}}</div>
+                                    </div>
+                                    <div class="product__item__text">
+                                        <ul>
+                                            <li>Active</li>
+                                            <li>Movie</li>
+                                        </ul>
+                                        <h5><a href="/comic/{{item.Id}}">{{item.Name}}</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="recent__product">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-8 col-sm-8">
+                            <div class="section-title">
+                                <h4>Anime</h4>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <div class="btn__all">
+                                <a href="https://animehay.club/" class="primary-btn">View All <span class="arrow_right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg" data-setbg="static/img/recent/recent-1.jpg">
+                                    <div class="ep">18 / 18</div>
+                                    <div class="comment"><i class="fa fa-comments"></i> 11</div>
+                                    <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                                </div>
+                                <div class="product__item__text">
+                                    <ul>
+                                        <li>Active</li>
+                                        <li>Movie</li>
+                                    </ul>
+                                    <h5><a href="#">Great Teacher Onizuka</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg" data-setbg="static/img/recent/recent-2.jpg">
+                                    <div class="ep">18 / 18</div>
+                                    <div class="comment"><i class="fa fa-comments"></i> 11</div>
+                                    <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                                </div>
+                                <div class="product__item__text">
+                                    <ul>
+                                        <li>Active</li>
+                                        <li>Movie</li>
+                                    </ul>
+                                    <h5><a href="#">Fate/stay night Movie: Heaven's Feel - II. Lost</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg" data-setbg="static/img/recent/recent-3.jpg">
+                                    <div class="ep">18 / 18</div>
+                                    <div class="comment"><i class="fa fa-comments"></i> 11</div>
+                                    <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                                </div>
+                                <div class="product__item__text">
+                                    <ul>
+                                        <li>Active</li>
+                                        <li>Movie</li>
+                                    </ul>
+                                    <h5><a href="#">Mushishi Zoku Shou: Suzu no Shizuku</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg" data-setbg="static/img/recent/recent-4.jpg">
+                                    <div class="ep">18 / 18</div>
+                                    <div class="comment"><i class="fa fa-comments"></i> 11</div>
+                                    <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                                </div>
+                                <div class="product__item__text">
+                                    <ul>
+                                        <li>Active</li>
+                                        <li>Movie</li>
+                                    </ul>
+                                    <h5><a href="#">Fate/Zero 2nd Season</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg" data-setbg="static/img/recent/recent-5.jpg">
+                                    <div class="ep">18 / 18</div>
+                                    <div class="comment"><i class="fa fa-comments"></i> 11</div>
+                                    <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                                </div>
+                                <div class="product__item__text">
+                                    <ul>
+                                        <li>Active</li>
+                                        <li>Movie</li>
+                                    </ul>
+                                    <h5><a href="#">Kizumonogatari II: Nekket su-hen</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg" data-setbg="static/img/recent/recent-6.jpg">
+                                    <div class="ep">18 / 18</div>
+                                    <div class="comment"><i class="fa fa-comments"></i> 11</div>
+                                    <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                                </div>
+                                <div class="product__item__text">
+                                    <ul>
+                                        <li>Active</li>
+                                        <li>Movie</li>
+                                    </ul>
+                                    <h5><a href="#">The Seven Deadly Sins: Wrath of the Gods</a></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-8">
+                <div class="product__sidebar">
+                    <div class="product__sidebar__view">
+                        <div class="section-title">
+                            <h5>Top Views</h5>
+                        </div>
+                        <ul class="filter__controls">
+                            <li class="active" data-filter="*">Day</li>
+                            <li data-filter=".week">Week</li>
+                            <li data-filter=".month">Month</li>
+                            <li data-filter=".years">Years</li>
+                        </ul>
+                        <div class="filter__gallery">
+                            <div class="product__sidebar__view__item set-bg mix month week"
+                                 data-setbg="https://images6.alphacoders.com/647/thumb-1920-647547.jpg">
+                                <div class="ep">Chap 573</div>
+                                <div class="view"><i class="fa fa-eye"></i> 2129141</div>
+                                <h5><a href="#">Dragon Ball</a></h5>
+                            </div>
+
+                            <div class="product__sidebar__view__item set-bg mix week years"
+                                 data-setbg="https://images6.alphacoders.com/606/thumb-1920-606263.jpg">
+                                <div class="ep">Chap 1039</div>
+                                <div class="view"><i class="fa fa-eye"></i> 189141</div>
+                                <h5><a href="#">One Piece</a></h5>
+                            </div>
+
+                            <div class="product__sidebar__view__item set-bg mix years month"
+                                 data-setbg="https://images7.alphacoders.com/592/thumb-1920-592678.jpg">
+                                <div class="ep">Chap 1211</div>
+                                <div class="view"><i class="fa fa-eye"></i> 119141</div>
+                                <h5><a href="#">Pokemon</a></h5>
+                            </div>
+
+                            <div class="product__sidebar__view__item set-bg mix day"
+                                 data-setbg="https://images7.alphacoders.com/727/thumbbig-727036.webp">
+                                <div class="ep">18 / ?</div>
+                                <div class="view"><i class="fa fa-eye"></i> 34141</div>
+                                <h5><a href="#">Naruto</a></h5>
+                            </div>
+
+                            <div class="product__sidebar__view__item set-bg mix day years"
+                                 data-setbg="https://images.alphacoders.com/109/thumb-1920-1093511.png">
+                                <div class="ep">Hot</div>
+                                <div class="view"><i class="fa fa-eye"></i> 23000</div>
+                                <h5><a href="#">Solo Leveling SS2</a></h5>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product__sidebar__comment">
+                        <div class="section-title">
+                            <h5>New Anime</h5>
+                        </div>
+                        <div class="product__sidebar__comment__item">
+                            <div class="product__sidebar__comment__item__pic">
+                                <img style="width: 90; height: 130px;" src="https://i0.wp.com/hhhkungfu.tv/wp-content/uploads/2022/01/Binh-Chu-Ky-Hon.jpg?fit=300%2C448&ssl=1" alt="">
+                            </div>
+                            <div class="product__sidebar__comment__item__text">
+                                <ul>
+                                    <li>Active</li>
+                                    <li>Movie</li>
+                                    <li>CNA</li>
+                                </ul>
+                                <h5><a href="#">Binh Chủ Kỳ Hồn</a></h5>
+                                <span><i class="fa fa-eye"></i> 5.111 Viewes</span>
+                            </div>
+                        </div>
+                        <div class="product__sidebar__comment__item">
+                            <div class="product__sidebar__comment__item__pic">
+                                <img style="width: 90; height: 130px;" src="https://i0.wp.com/hhhkungfu.tv/wp-content/uploads/2022/01/Cuu-Thien-Huyen-De-Quyet.jpg?fit=320%2C449&ssl=1" alt="">
+                            </div>
+                            <div class="product__sidebar__comment__item__text">
+                                <ul>
+                                    <li>Active</li>
+                                    <li>Movie</li>
+                                </ul>
+                                <h5><a href="#">Cửu Thiên Huyền Đế Quyết</a></h5>
+                                <span><i class="fa fa-eye"></i> 5.091 Viewes</span>
+                            </div>
+                        </div>
+                        <div class="product__sidebar__comment__item">
+                            <div class="product__sidebar__comment__item__pic">
+                                <img style="width: 90; height: 130px;" src="https://animehay.club//upload/poster/3411.jpg" alt="">
+                            </div>
+                            <div class="product__sidebar__comment__item__text">
+                                <ul>
+                                    <li>Active</li>
+                                    <li>Anime</li>
+                                    <li>Movie</li>
+                                </ul>
+                                <h5><a href="#">Sono Bisque Doll wa Koi wo Suru</a></h5>
+                                <span><i class="fa fa-eye"></i> 4.041 Viewes</span>
+                            </div>
+                        </div>
+                        <div class="product__sidebar__comment__item">
+                            <div class="product__sidebar__comment__item__pic">
+                                <img style="width: 90; height: 130px;" src="https://animehay.club//upload/poster/3418.jpg" alt="">
+                            </div>
+                            <div class="product__sidebar__comment__item__text">
+                                <ul>
+                                    <li>Active</li>
+                                    <li>Movie</li>
+                                </ul>
+                                <h5><a href="#">Sasaki to Miyano</a></h5>
+                                <span><i class="fa fa-eye"></i> 1.141 Viewes</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

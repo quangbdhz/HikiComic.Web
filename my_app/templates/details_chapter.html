@@ -1,0 +1,76 @@
+{% extends 'index.html' %}
+{% block body %}
+<div>
+    <div class="breadcrumb-option">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb__links">
+                        <a href="/"><i class="fa fa-home"></i> Home</a>
+                        <a href="/comic/{{manhwa.Id}}">{{manhwa.Name}}</a>
+                        <span>{{chapter.Name}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="position: -webkit-sticky; margin-right: auto; margin-left: auto; position: sticky; top: 0;
+            width: 100%; background: #2C3A47; margin-top: 5px;">
+
+        <div class="grid-option" style="width: 15%; margin: 0 auto; padding-top: 0.2%; padding-bottom: 0.2%">
+            <div class="previous-chapter" style="margin: auto;">
+                <a style="background-color: #c82333; border-radius: 5px; color: white; text-align: center; text-decoration: none;
+                   display: inline-block; width: 40px; height: 80%;"
+                   href="/read/comic/{{previous_chapter.Id}}">
+                    <i style="padding: 25%;" class="fa fa-chevron-left"></i>
+                </a>
+            </div>
+
+            <div class="select-chapter" style="text-align: center; margin-right: 5px; margin-left: 5px;">
+                <select style=" all: unset;">
+                    <option selected>{{chapter.Name}}</option>
+                    {% for item in listChapter %}
+                        {% if item.Name == chapter.Name %}
+                        {% else %}
+                            <option>{{item.Name}}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="next-chapter" style="margin: auto;">
+                <a style="background-color: #c82333; border-radius: 5px; color: white; text-align: center; text-decoration: none;
+                   display: inline-block; width: 40px; height: 80%;"
+                   href="/read/comic/{{next_chapter.Id}}">
+                    <i style="padding: 25%;" class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    {% if size > 0 %}
+    <div style="Width: 70%; text-align: center; margin-left: auto; margin-top: 10px; margin-right: auto;">
+        {% for item in listUrlImage %}
+        <img src="{{item}}"/>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div style="Width: 70%; text-align: center; margin-left: auto; margin-top: 10px; margin-right: auto;" class="anime__review__item__text">
+        <h5 style="color: white;">Đang cập nhật</h5>
+    </div>
+    {% endif %}
+
+    <div class="anime__details__form"
+         style="Width: 70%; margin-left: auto; margin-top: 20px; margin-bottom:50px; margin-right: auto;">
+        <div class="section-title">
+            <h5>Your Comment</h5>
+        </div>
+        <form action="#">
+            <textarea placeholder="Your Comment"></textarea>
+            <button type="submit"><i class="fa fa-location-arrow"></i> Send</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

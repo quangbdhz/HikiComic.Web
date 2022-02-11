@@ -1,0 +1,162 @@
+{% extends 'index.html' %}
+{% block body %}
+<div class="breadcrumb-option">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__links">
+                    <a href="./index.html"><i class="fa fa-home"></i> Home</a>
+                    <a href="./categories.html">Categories</a>
+                    <span>Romance</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb End -->
+
+<!-- Anime Section Begin -->
+<section class="anime-details spad">
+    <div class="container">
+        <div class="anime__details__content">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="anime__details__pic set-bg" data-setbg="{{comic.UrlImageManhwa}}">
+                        <div class="comment"><i class="fa fa-comments"></i> 11</div>
+                        <div class="view"><i class="fa fa-eye"></i> {{comic.Views}}</div>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="anime__details__text">
+                        <div class="anime__details__title">
+                            <h3>{{comic.Name}}</h3>
+                            <span>フェイト／ステイナイト, Feito／sutei naito</span>
+                        </div>
+                        <div class="anime__details__rating">
+                            <div class="rating">
+                                <a href="#"><i class="fa fa-star"></i></a>
+                                <a href="#"><i class="fa fa-star"></i></a>
+                                <a href="#"><i class="fa fa-star"></i></a>
+                                <a href="#"><i class="fa fa-star"></i></a>
+                                <a href="#"><i class="fa fa-star-half-o"></i></a>
+                            </div>
+                            <span>1.029 Votes</span>
+                        </div>
+                        <p>{{comic.Description}}</p>
+                        <div class="anime__details__widget">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6">
+                                    <ul>
+                                        <li><span>Type:</span> Comic</li>
+                                        <li><span>Studios:</span> Hiki Studio</li>
+                                        <li><span>Date aired:</span> {{comic.Create_date.strftime('%Y-%m-%d')}}</li>
+                                        <li><span>Status:</span> In Process</li>
+                                        <li><span>Genre:</span> Action, Comic</li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <ul>
+                                        <li><span>Author:</span> Hiki Hachi</li>
+                                        <li><span>Scores:</span> 7.31 / 1,515</li>
+                                        <li><span>Rating:</span> 8.5 / 161 times</li>
+                                        <li><span>Views:</span> {{comic.Views}}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="anime__details__btn">
+                            <a href="#" class="follow-btn"><i class="fa fa-heart-o"></i> Follow</a>
+                            {% if size > 0 %}
+                            <a href="/read/comic/{{chapter[size].Id}}" class="watch-btn"><span>Read Now</span> <i
+                                    class="fa fa-angle-right"></i></a>
+                            {% else %}
+                            <a href="#" class="watch-btn"><span>Read Now</span> <i
+                                    class="fa fa-angle-right"></i></a>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-md-8">
+                <div class="anime__details__review">
+                    <div class="section-title">
+                        <h5>CHAPTER</h5>
+                    </div>
+
+                    <div style="overflow-y: auto; max-height: 600px; scrollbar-width: thin;">
+                        {% if size > 0 %}
+                        {% for item in chapter %}
+                        <div class="anime__review__item" style="margin: 0px; padding: 0px; Height: 35px;">
+                            <div class="form-group row pb-5">
+                                <div class="col-sm-3">
+                                    <a href="/read/comic/{{item.Id}}">
+                                        <span>{{item.Name}}</span>
+                                    </a>
+                                </div>
+                                <div style="text-align:center; color: #c7ecee;" class="col-sm-7">
+                                    {{item.Create_date.strftime('%Y-%m-%d')}}
+                                </div>
+                                <div style="color: #c7ecee;" class="col-sm-2">{{item.Views}}</div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        {% else %}
+                        <div class="anime__review__item__text">
+                            <h5 style="color: white;">Đang cập nhật</h5>
+                        </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+                <div class="anime__details__form">
+                    <div class="section-title">
+                        <h5>Your Comment</h5>
+                    </div>
+                    <form action="/">
+                        <textarea placeholder="Your Comment"></textarea>
+                        <button type="submit"><i class="fa fa-location-arrow"></i> Submit</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4">
+                <div class="anime__details__sidebar">
+                    <div class="section-title">
+                        <h5>you might like...</h5>
+                    </div>
+
+                    <div class="product__sidebar__view__item set-bg mix month week"
+                         data-setbg="https://images6.alphacoders.com/647/thumb-1920-647547.jpg">
+                        <div class="ep">Chap 573</div>
+                        <div class="view"><i class="fa fa-eye"></i> 2129141</div>
+                        <h5><a href="#">Dragon Ball</a></h5>
+                    </div>
+
+                    <div class="product__sidebar__view__item set-bg mix week years"
+                         data-setbg="https://images6.alphacoders.com/606/thumb-1920-606263.jpg">
+                        <div class="ep">Chap 1039</div>
+                        <div class="view"><i class="fa fa-eye"></i> 189141</div>
+                        <h5><a href="#">One Piece</a></h5>
+                    </div>
+
+                    <div class="product__sidebar__view__item set-bg mix years month"
+                         data-setbg="https://images7.alphacoders.com/592/thumb-1920-592678.jpg">
+                        <div class="ep">Chap 1211</div>
+                        <div class="view"><i class="fa fa-eye"></i> 119141</div>
+                        <h5><a href="#">Pokemon</a></h5>
+                    </div>
+
+                    <div class="product__sidebar__view__item set-bg mix day"
+                         data-setbg="https://images7.alphacoders.com/727/thumbbig-727036.webp">
+                        <div class="ep">18 / ?</div>
+                        <div class="view"><i class="fa fa-eye"></i> 34141</div>
+                        <h5><a href="#">Naruto</a></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
